@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.serif-font {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Background decorations */
+.leaf {
+    position: fixed;
+    color: #B99A5B;
+    opacity: 0.25;
+    pointer-events: none;
+    font-size: 2rem;
+}
+
+.leaf-one {
+    top: 12%;
+    left: 8%;
+    transform: rotate(-20deg);
+}
+
+.leaf-two {
+    bottom: 15%;
+    right: 8%;
+    transform: rotate(25deg);
+}
+
+.leaf-three {
+    top: 25%;
+    right: 15%;
+    font-size: 1.2rem;
+}
+
+
+/* Envelope */
+.envelope-wrapper {
+    width: 320px;
+    max-width: 100%;
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 215px;
+    max-width: 100%;
+    margin: 0 auto;
+    perspective: 1000px;
+    filter: drop-shadow(0 20px 20px rgba(24, 60, 43, 0.15));
+}
+
+/* Envelope body */
+.envelope::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #28583F;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Envelope flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #3D7657;
+    z-index: 4;
+}
+
+/* Letter peeking out */
+.envelope-letter {
+    position: absolute;
+    top: 18px;
+    left: 25px;
+    width: calc(100% - 50px);
+    height: 175px;
+    background: #F8F3E7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    border-radius: 2px;
+}
+
+/* Envelope front */
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.envelope-line-left,
+.envelope-line-right {
+    position: absolute;
+    bottom: -2px;
+    width: 220px;
+    height: 2px;
+    background: #477A5C;
+}
+
+.envelope-line-left {
+    left: -45px;
+    transform: rotate(34deg);
+}
+
+.envelope-line-right {
+    right: -45px;
+    transform: rotate(-34deg);
+}
+
+/* Envelope hover effect */
+.envelope-wrapper:hover .envelope {
+    transform: translateY(-5px);
+    transition: transform 0.4s ease;
+}
+
+.envelope {
+    transition: transform 0.4s ease;
+}
+
+
+/* Paper texture */
+.paper-texture {
+    background-image:
+        radial-gradient(rgba(24, 60, 43, 0.025) 1px, transparent 1px);
+    background-size: 8px 8px;
+}
+
+
+/* Photo gallery */
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #F8F3E7;
+    background: #F8F3E7;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.photo-card img {
+    display: block;
+}
+
+.photo-caption {
+    background: #F8F3E7;
+    color: #183C2B;
+    padding: 14px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    text-align: center;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 400px) {
+    .envelope {
+        width: 280px;
+        height: 190px;
+    }
+
+    .envelope-flap {
+        border-left-width: 140px;
+        border-right-width: 140px;
+        border-top-width: 98px;
+    }
+
+    .envelope-letter {
+        height: 150px;
+    }
+}
